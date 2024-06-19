@@ -1,6 +1,6 @@
+// https://codepen.io/alphardex/pen/jOWMGON
 .music_background {
   $bubble-count: 15;
-  $sway-type: "sway-left-to-right", "sway-right-to-left";
 
   @function random_range($min, $max) {
     $rand: random();
@@ -33,10 +33,7 @@
           --bubble-left-offset: #{random_range(0vw, 100vw)};
           --bubble-radius: #{random_range(4vw, 8vw)};
           --bubble-float-duration: #{random_range(6s, 12s)};
-          --bubble-sway-duration: #{random_range(4s, 6s)};
           --bubble-float-delay: #{random_range(0s, 4s)};
-          --bubble-sway-delay: #{random_range(0s, 4s)};
-          --bubble-sway-type: #{sample($sway-type)};
         }
       }
     }
@@ -45,26 +42,6 @@
   @keyframes float-up {
     to {
       transform: translateY(-175vh);
-    }
-  }
-
-  @keyframes sway-left-to-right {
-    from {
-      transform: translateX(-100%);
-    }
-
-    to {
-      transform: translateX(100%);
-    }
-  }
-
-  @keyframes sway-right-to-left {
-    from {
-      transform: translateX(100%);
-    }
-
-    to {
-      transform: translateX(-100%);
     }
   }
 }
