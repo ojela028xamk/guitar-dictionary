@@ -1,95 +1,142 @@
 import Image from "next/image";
+// https://www.flaticon.com/free-icons/music-note
+import music_note from "./note1.png";
+import music_note2 from "./note2.png";
 import css from "./page.module.scss";
 
-export default function Home() {
+const Home = () => {
   return (
     <main className={css.main}>
-      <div className={css.description}>
-        <p>
-          Get started by editing&nbsp;
-          <code className={css.code}>src/app/page.tsx</code>
-        </p>
-        <div>
-          <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{" "}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className={css.vercelLogo}
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
-        </div>
-      </div>
-
-      <div className={css.center}>
+      <div className={css.music_note_background}>
         <Image
-          className={css.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
+          className={css.music_note}
+          src={music_note}
+          width={200}
+          height={200}
+          alt="Picture of the author"
         />
-      </div>
-
-      <div className={css.grid}>
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={css.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Docs <span>-&gt;</span>
-          </h2>
-          <p>Find in-depth information about Next.js features and API.</p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={css.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Learn <span>-&gt;</span>
-          </h2>
-          <p>Learn about Next.js in an interactive course with&nbsp;quizzes!</p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={css.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Templates <span>-&gt;</span>
-          </h2>
-          <p>Explore starter templates for Next.js.</p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={css.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Deploy <span>-&gt;</span>
-          </h2>
-          <p>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
+        <Image
+          className={css.music_note}
+          src={music_note2}
+          width={200}
+          height={200}
+          alt="Picture of the author"
+        />
+        <Image
+          className={css.music_note}
+          src={music_note}
+          width={200}
+          height={200}
+          alt="Picture of the author"
+        />
+        <Image
+          className={css.music_note}
+          src={music_note2}
+          width={200}
+          height={200}
+          alt="Picture of the author"
+        />
+        <Image
+          className={css.music_note}
+          src={music_note}
+          width={200}
+          height={200}
+          alt="Picture of the author"
+        />
+        <Image
+          className={css.music_note}
+          src={music_note2}
+          width={200}
+          height={200}
+          alt="Picture of the author"
+        />
+        <Image
+          className={css.music_note}
+          src={music_note}
+          width={200}
+          height={200}
+          alt="Picture of the author"
+        />
+        <Image
+          className={css.music_note}
+          src={music_note2}
+          width={200}
+          height={200}
+          alt="Picture of the author"
+        />
+        <Image
+          className={css.music_note}
+          src={music_note}
+          width={200}
+          height={200}
+          alt="Picture of the author"
+        />
+        <Image
+          className={css.music_note}
+          src={music_note2}
+          width={200}
+          height={200}
+          alt="Picture of the author"
+        />
+        <Image
+          className={css.music_note}
+          src={music_note}
+          width={200}
+          height={200}
+          alt="Picture of the author"
+        />
+        <Image
+          className={css.music_note}
+          src={music_note2}
+          width={200}
+          height={200}
+          alt="Picture of the author"
+        />
+        <Image
+          className={css.music_note}
+          src={music_note}
+          width={200}
+          height={200}
+          alt="Picture of the author"
+        />
+        <Image
+          className={css.music_note}
+          src={music_note2}
+          width={200}
+          height={200}
+          alt="Picture of the author"
+        />
+        <Image
+          className={css.music_note}
+          src={music_note}
+          width={200}
+          height={200}
+          alt="Picture of the author"
+        />
+        <Image
+          className={css.music_note}
+          src={music_note2}
+          width={200}
+          height={200}
+          alt="Picture of the author"
+        />
+        <Image
+          className={css.music_note}
+          src={music_note}
+          width={200}
+          height={200}
+          alt="Picture of the author"
+        />
+        <Image
+          className={css.music_note}
+          src={music_note2}
+          width={200}
+          height={200}
+          alt="Picture of the author"
+        />
       </div>
     </main>
   );
-}
+};
+
+export default Home;
