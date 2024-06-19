@@ -5,135 +5,25 @@ import music_note2 from "./note2.png";
 import css from "./page.module.scss";
 
 const Home = () => {
+  const noteCount = Array.from(Array(15).keys());
+
   return (
     <main className={css.main}>
       <div className={css.music_note_background}>
-        <Image
-          className={css.music_note}
-          src={music_note}
-          width={200}
-          height={200}
-          alt="Picture of the author"
-        />
-        <Image
-          className={css.music_note}
-          src={music_note2}
-          width={200}
-          height={200}
-          alt="Picture of the author"
-        />
-        <Image
-          className={css.music_note}
-          src={music_note}
-          width={200}
-          height={200}
-          alt="Picture of the author"
-        />
-        <Image
-          className={css.music_note}
-          src={music_note2}
-          width={200}
-          height={200}
-          alt="Picture of the author"
-        />
-        <Image
-          className={css.music_note}
-          src={music_note}
-          width={200}
-          height={200}
-          alt="Picture of the author"
-        />
-        <Image
-          className={css.music_note}
-          src={music_note2}
-          width={200}
-          height={200}
-          alt="Picture of the author"
-        />
-        <Image
-          className={css.music_note}
-          src={music_note}
-          width={200}
-          height={200}
-          alt="Picture of the author"
-        />
-        <Image
-          className={css.music_note}
-          src={music_note2}
-          width={200}
-          height={200}
-          alt="Picture of the author"
-        />
-        <Image
-          className={css.music_note}
-          src={music_note}
-          width={200}
-          height={200}
-          alt="Picture of the author"
-        />
-        <Image
-          className={css.music_note}
-          src={music_note2}
-          width={200}
-          height={200}
-          alt="Picture of the author"
-        />
-        <Image
-          className={css.music_note}
-          src={music_note}
-          width={200}
-          height={200}
-          alt="Picture of the author"
-        />
-        <Image
-          className={css.music_note}
-          src={music_note2}
-          width={200}
-          height={200}
-          alt="Picture of the author"
-        />
-        <Image
-          className={css.music_note}
-          src={music_note}
-          width={200}
-          height={200}
-          alt="Picture of the author"
-        />
-        <Image
-          className={css.music_note}
-          src={music_note2}
-          width={200}
-          height={200}
-          alt="Picture of the author"
-        />
-        <Image
-          className={css.music_note}
-          src={music_note}
-          width={200}
-          height={200}
-          alt="Picture of the author"
-        />
-        <Image
-          className={css.music_note}
-          src={music_note2}
-          width={200}
-          height={200}
-          alt="Picture of the author"
-        />
-        <Image
-          className={css.music_note}
-          src={music_note}
-          width={200}
-          height={200}
-          alt="Picture of the author"
-        />
-        <Image
-          className={css.music_note}
-          src={music_note2}
-          width={200}
-          height={200}
-          alt="Picture of the author"
-        />
+        {noteCount.map(() => (
+          <>
+            <Image
+              className={css.music_note}
+              src={music_note}
+              alt="Music Note"
+            />
+            <Image
+              className={css.music_note}
+              src={music_note2}
+              alt="Music Note"
+            />
+          </>
+        ))}
       </div>
     </main>
   );
