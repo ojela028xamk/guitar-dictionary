@@ -3,6 +3,7 @@ import Image from "next/image";
 import music_note from "../note1.png";
 import music_note2 from "../note2.png";
 import css from "./MusicBackground.module.scss";
+import { Fragment } from "react";
 
 const MusicBackground = () => {
   const noteCount = Array.from(Array(15).keys());
@@ -10,8 +11,8 @@ const MusicBackground = () => {
   return (
     <div className={css.music_background}>
       <div className={css.background}>
-        {noteCount.map(() => (
-          <>
+        {noteCount.map((number) => (
+          <Fragment key={number}>
             <Image
               className={css.music_note}
               src={music_note}
@@ -22,7 +23,7 @@ const MusicBackground = () => {
               src={music_note2}
               alt="Music Note"
             />
-          </>
+          </Fragment>
         ))}
       </div>
     </div>
