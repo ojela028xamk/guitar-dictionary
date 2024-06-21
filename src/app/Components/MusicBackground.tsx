@@ -4,12 +4,14 @@ import music_note from "../note1.png";
 import music_note2 from "../note2.png";
 import css from "./MusicBackground.module.scss";
 import { Fragment } from "react";
+import DictionaryTable from "./DictionaryTable";
 
 const MusicBackground = () => {
   const noteCount = Array.from(Array(15).keys());
 
   return (
     <div className={css.music_background}>
+      <DictionaryTable />
       <div className={css.background}>
         {noteCount.map((number) => (
           <Fragment key={number}>
