@@ -1,19 +1,21 @@
+@import "../variables";
+
 .dictionary_table {
+  width: 700px;
+  background: $black;
+  padding: 0.5em;
+  border-radius: 0.5em;
   position: absolute;
   top: 30%;
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 1;
-  font-size: xx-large;
+  font-size: x-large;
 
-  td,
-  th {
-    border: 2px solid #dddddd;
+  th,
+  td {
+    color: white;
+    padding: 0.2em 1em;
     text-align: left;
-    padding: 8px;
-  }
-
-  tr:nth-child(even) {
-    background-color: #dddddd;
   }
 }
