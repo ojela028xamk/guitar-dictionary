@@ -1,12 +1,7 @@
 "use client";
-import { getDictionaryList } from "@/dictionaryService";
+import { Dictionary, getDictionaryList } from "@/dictionaryService";
 import { useEffect, useState } from "react";
 import css from "./DictionaryTable.module.scss";
-
-type Dictionary = {
-  en: string;
-  fi: string;
-};
 
 const DictionaryTable = () => {
   const [dictionary, setDictionary] = useState<Dictionary[]>([]);
@@ -14,10 +9,15 @@ const DictionaryTable = () => {
   useEffect(() => {
     getDictionaryList()
       .then((res) => {
-        setDictionary(res.rows as Dictionary[]);
+        setDictionary(res as Dictionary[]);
       })
-      .catch((err) => console.log(err));
+      .catch((err) => {
+        setDictionary([]);
+        console.log(err);
+      });
   }, []);
+
+  if (!dictionary.length) return null;
 
   return (
     <table className={css.dictionary_table}>
@@ -29,8 +29,8 @@ const DictionaryTable = () => {
       </thead>
       <tbody>
         {dictionary.length &&
-          dictionary.map((word) => (
-            <tr>
+          dictionary.map((word, index) => (
+            <tr key={index}>
               <td>{word.en}</td>
               <td>{word.fi}</td>
             </tr>
