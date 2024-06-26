@@ -18,9 +18,9 @@ const DictionaryTable = ({ searchWord }: DictionaryTableProps) => {
     getDictionaryList()
       .then((res) => {
         setDictionary(res as Dictionary[]);
+        setFilteredDictionary(res as Dictionary[]);
       })
       .catch((err) => {
-        setDictionary([]);
         console.log(err);
       });
   });
@@ -38,8 +38,6 @@ const DictionaryTable = ({ searchWord }: DictionaryTableProps) => {
     setFilteredDictionary(filteredDictionary);
   }, [searchWord]);
 
-  if (!dictionary.length) return null;
-
   return (
     <table className={css.dictionary_table}>
       <thead>
@@ -48,15 +46,18 @@ const DictionaryTable = ({ searchWord }: DictionaryTableProps) => {
           <th>Suomeksi</th>
         </tr>
       </thead>
-      <tbody>
-        {filteredDictionary.length &&
-          filteredDictionary.map((word, index) => (
+      {filteredDictionary.length ? (
+        <tbody>
+          {filteredDictionary.map((word, index) => (
             <tr key={index}>
               <td>{word.en}</td>
               <td>{word.fi}</td>
             </tr>
           ))}
-      </tbody>
+        </tbody>
+      ) : (
+        <tbody></tbody>
+      )}
     </table>
   );
 };
