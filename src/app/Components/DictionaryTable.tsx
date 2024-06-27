@@ -3,18 +3,21 @@ import { Dictionary, getDictionaryList } from "@/dictionaryService";
 import { useEffect, useState } from "react";
 import css from "./DictionaryTable.module.scss";
 import { useEffectOnce } from "react-use";
+import Spinner from "./Spinner";
 
 type DictionaryTableProps = {
   searchWord: string;
 };
 
 const DictionaryTable = ({ searchWord }: DictionaryTableProps) => {
+  const [isLoading, setIsLoading] = useState<boolean>(false);
   const [dictionary, setDictionary] = useState<Dictionary[]>([]);
   const [filteredDictionary, setFilteredDictionary] = useState<Dictionary[]>(
     []
   );
 
   useEffectOnce(() => {
+    setIsLoading(true);
     getDictionaryList()
       .then((res) => {
         setDictionary(res as Dictionary[]);
@@ -22,6 +25,9 @@ const DictionaryTable = ({ searchWord }: DictionaryTableProps) => {
       })
       .catch((err) => {
         console.log(err);
+      })
+      .finally(() => {
+        setIsLoading(false);
       });
   });
 
@@ -37,6 +43,20 @@ const DictionaryTable = ({ searchWord }: DictionaryTableProps) => {
 
     setFilteredDictionary(filteredDictionary);
   }, [searchWord]);
+
+  if (isLoading) {
+    return (
+      <table className={css.dictionary_table}>
+        <thead>
+          <tr>
+            <th>English</th>
+            <th>Suomeksi</th>
+          </tr>
+        </thead>
+        <Spinner />
+      </table>
+    );
+  }
 
   return (
     <table className={css.dictionary_table}>
