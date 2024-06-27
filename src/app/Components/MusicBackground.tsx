@@ -6,6 +6,7 @@ import css from "./MusicBackground.module.scss";
 import { Fragment, useState } from "react";
 import DictionaryTable from "./DictionaryTable";
 import DictionarySearch from "./DictionarySearch";
+import DictionaryHeader from "./DictionaryHeader";
 
 const MusicBackground = () => {
   const [searchWord, setSearchWord] = useState<string>("");
@@ -13,6 +14,7 @@ const MusicBackground = () => {
 
   return (
     <div className={css.music_background}>
+      <DictionaryHeader />
       <DictionarySearch setSearchWord={setSearchWord} />
       <DictionaryTable searchWord={searchWord} />
       <div className={css.background}>
