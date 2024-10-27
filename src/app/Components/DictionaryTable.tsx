@@ -44,6 +44,20 @@ const DictionaryTable = ({ searchWord }: DictionaryTableProps) => {
     setFilteredDictionary(filteredDictionary);
   }, [searchWord]);
 
+  const sortArray = (array: Dictionary[]) => {
+    const sortedArray = [...array].sort((a, b) => {
+      const nameA = a.en.toUpperCase();
+      const nameB = b.en.toUpperCase();
+
+      if (nameA < nameB) return -1;
+      if (nameA > nameB) return 1;
+
+      return 0;
+    });
+
+    return sortedArray;
+  };
+
   if (isLoading) {
     return (
       <table className={css.dictionary_table}>
@@ -68,7 +82,7 @@ const DictionaryTable = ({ searchWord }: DictionaryTableProps) => {
       </thead>
       {filteredDictionary.length ? (
         <tbody>
-          {filteredDictionary.map((word, index) => (
+          {sortArray(filteredDictionary).map((word, index) => (
             <tr key={index}>
               <td>{word.en}</td>
               <td>{word.fi}</td>
