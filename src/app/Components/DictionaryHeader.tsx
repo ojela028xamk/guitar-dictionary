@@ -5,7 +5,7 @@ import css from "./DictionaryHeader.module.scss";
 const DictionaryHeader = () => {
   return (
     <div className={css.dictionary_header}>
-      <Image src={dictionaryLogo} priority={true} alt="Dictionary Logo" />
+      <Image src={dictionaryLogo} priority alt="Dictionary Logo" />
     </div>
   );
 };

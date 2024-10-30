@@ -1,3 +1,6 @@
+@import "../variables";
+
 .dictionary_header {
+  margin: $component-margin;
   z-index: 1;
 }
