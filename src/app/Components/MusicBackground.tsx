@@ -3,20 +3,13 @@ import Image from "next/image";
 import music_note from "../note1.png";
 import music_note2 from "../note2.png";
 import css from "./MusicBackground.module.scss";
-import { Fragment, useState } from "react";
-import DictionaryTable from "./DictionaryTable";
-import DictionarySearch from "./DictionarySearch";
-import DictionaryHeader from "./DictionaryHeader";
+import { Fragment } from "react";
 
 const MusicBackground = () => {
-  const [searchWord, setSearchWord] = useState<string>("");
   const noteCount = Array.from(Array(15).keys());
 
   return (
     <div className={css.music_background}>
-      <DictionaryHeader />
-      <DictionarySearch setSearchWord={setSearchWord} />
-      <DictionaryTable searchWord={searchWord} />
       <div className={css.background}>
         {noteCount.map((number) => (
           <Fragment key={number}>
