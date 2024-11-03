@@ -1,7 +1,6 @@
+@import "../variables";
+
 .dictionary_header {
-  position: absolute;
-  top: 1%;
-  left: 50%;
-  transform: translate(-50%);
+  margin: $component-margin;
   z-index: 1;
 }

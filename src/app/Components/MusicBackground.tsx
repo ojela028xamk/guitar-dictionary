@@ -1,34 +1,29 @@
-import Image from "next/image";
 // https://www.flaticon.com/free-icons/music-note
-import music_note from "../note1.png";
-import music_note2 from "../note2.png";
+import Image from "next/image";
 import css from "./MusicBackground.module.scss";
-import { Fragment, useState } from "react";
-import DictionaryTable from "./DictionaryTable";
-import DictionarySearch from "./DictionarySearch";
-import DictionaryHeader from "./DictionaryHeader";
+import { Fragment } from "react";
 
 const MusicBackground = () => {
-  const [searchWord, setSearchWord] = useState<string>("");
   const noteCount = Array.from(Array(15).keys());
 
   return (
     <div className={css.music_background}>
-      <DictionaryHeader />
-      <DictionarySearch setSearchWord={setSearchWord} />
-      <DictionaryTable searchWord={searchWord} />
       <div className={css.background}>
         {noteCount.map((number) => (
           <Fragment key={number}>
             <Image
               className={css.music_note}
-              src={music_note}
+              src="/note1.png"
               alt="Music Note"
+              width={512}
+              height={512}
             />
             <Image
               className={css.music_note}
-              src={music_note2}
+              src="/note2.png"
               alt="Music Note"
+              width={512}
+              height={512}
             />
           </Fragment>
         ))}
