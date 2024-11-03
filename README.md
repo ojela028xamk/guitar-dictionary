@@ -10,6 +10,6 @@ Website is created with Next.js and it uses PostgreSQL database for dictionary.
 - HTML, CSS, JavaScript
 - Typescript
 - Next.js
-- SASS
+- Sass
 - React-use
 - PostgreSQL
