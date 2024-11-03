@@ -1,6 +1,6 @@
 "use client";
 import { Dictionary, getDictionaryList } from "@/dictionaryService";
-import { useEffect, useState } from "react";
+import { Fragment, useEffect, useState } from "react";
 import css from "./DictionaryTable.module.scss";
 import { useEffectOnce } from "react-use";
 import Spinner from "./Spinner";
@@ -60,39 +60,35 @@ const DictionaryTable = ({ searchWord }: DictionaryTableProps) => {
 
   if (isLoading) {
     return (
-      <table className={css.dictionary_table}>
-        <thead>
-          <tr>
-            <th>English</th>
-            <th>Suomeksi</th>
-          </tr>
-        </thead>
-        <Spinner />
-      </table>
+      <div className={css.dictionary_table}>
+        <div className={css.table_header}>
+          <span>English</span>
+          <span>Suomeksi</span>
+          <Spinner />
+        </div>
+      </div>
     );
   }
 
   return (
-    <table className={css.dictionary_table}>
-      <thead>
-        <tr>
-          <th>English</th>
-          <th>Suomeksi</th>
-        </tr>
-      </thead>
+    <div className={css.dictionary_table}>
+      <div className={css.table_header}>
+        <span>English</span>
+        <span>Suomeksi</span>
+      </div>
       {filteredDictionary.length ? (
-        <tbody>
+        <>
           {sortArray(filteredDictionary).map((word, index) => (
-            <tr key={index}>
-              <td>{word.en}</td>
-              <td>{word.fi}</td>
-            </tr>
+            <div className={css.table_row} key={index}>
+              <span>{word.en}</span>
+              <span>{word.fi}</span>
+            </div>
           ))}
-        </tbody>
+        </>
       ) : (
-        <tbody></tbody>
+        <div></div>
       )}
-    </table>
+    </div>
   );
 };
 
