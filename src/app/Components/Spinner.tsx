@@ -1,7 +1,7 @@
 import css from "./Spinner.module.scss";
 
 const Spinner = () => {
-  return <tbody className={css.spinner}></tbody>;
+  return <div className={css.spinner}></div>;
 };
 
 export default Spinner;
