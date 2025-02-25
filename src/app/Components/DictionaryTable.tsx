@@ -78,12 +78,19 @@ const DictionaryTable = ({ searchWord }: DictionaryTableProps) => {
       </div>
       {filteredDictionary.length ? (
         <>
-          {sortArray(filteredDictionary).map((word, index) => (
-            <div className={css.table_row} key={index}>
-              <span>{word.en}</span>
-              <span>{word.fi}</span>
-            </div>
-          ))}
+          {sortArray(filteredDictionary).map((word, index) => {
+            const wordEng =
+              word.en[0].toUpperCase() + word.en.slice(1).toLowerCase();
+            const wordFin =
+              word.fi[0].toUpperCase() + word.fi.slice(1).toLowerCase();
+
+            return (
+              <div className={css.table_row} key={index}>
+                <span>{wordEng}</span>
+                <span>{wordFin}</span>
+              </div>
+            );
+          })}
         </>
       ) : (
         <div></div>
