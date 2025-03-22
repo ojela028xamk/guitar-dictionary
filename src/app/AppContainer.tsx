@@ -13,8 +13,8 @@ const AppContainer = () => {
     <div className={css.app_container}>
       <MusicBackground />
       <DictionaryHeader />
-      <DictionarySearch setSearchWord={setSearchWord} />
-      <DictionaryTable searchWord={searchWord} />
+      {/* <DictionarySearch setSearchWord={setSearchWord} />
+      <DictionaryTable searchWord={searchWord} /> */}
     </div>
   );
 };
