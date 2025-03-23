@@ -5,6 +5,7 @@ const DictionaryHeader = () => {
   return (
     <div className={css.dictionary_header}>
       <Image
+        className={css.dictionary_header_logo}
         src="/dictionary_logo.png"
         priority
         alt="Dictionary Logo"
