@@ -1,19 +1,19 @@
 @import "../variables";
 
 .dictionary_table {
+  margin: $component-margin auto;
+  width: 90%;
+  height: 600px;
   display: grid;
   grid-template-columns: repeat(2, auto);
   grid-auto-rows: 1.6em;
-  width: 700px;
-  height: 600px;
-  margin: $component-margin;
   background: $black;
   padding: 0.5em;
   border-radius: 0.5em;
   z-index: 1;
   box-shadow: 5px 5px 0px $blue;
   color: white;
-  font-size: 1.5em;
+  font-size: clamp(0.5em, 3vw, 1.5em);
   overflow-y: scroll;
 
   .table_header {

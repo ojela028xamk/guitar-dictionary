@@ -14,7 +14,7 @@ const AppContainer = () => {
       <MusicBackground />
       <DictionaryHeader />
       <DictionarySearch setSearchWord={setSearchWord} />
-      {/* <DictionaryTable searchWord={searchWord} /> */}
+      <DictionaryTable searchWord={searchWord} />
     </div>
   );
 };

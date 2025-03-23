@@ -1,9 +1,9 @@
 @import "../variables";
 
 .dictionary_search {
-  margin: $component-margin;
+  margin: $component-margin auto;
   z-index: 1;
-  width: 60%;
+  width: 90%;
 
   input {
     width: 100%;
