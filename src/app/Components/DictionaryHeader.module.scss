@@ -1,7 +1,7 @@
-@import "../variables";
+@use "../main.scss";
 
 .dictionary_header {
-  margin: $component-margin;
+  margin: main.$component-margin;
   z-index: 1;
 
   .dictionary_header_logo {

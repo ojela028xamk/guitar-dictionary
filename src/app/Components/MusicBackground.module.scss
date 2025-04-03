@@ -1,4 +1,4 @@
-@import "../variables";
+@use "../main.scss";
 
 // https://codepen.io/alphardex/pen/jOWMGON
 .music_background {
@@ -15,7 +15,7 @@
   }
 
   .background {
-    background: linear-gradient(180deg, $white 0%, white 100%);
+    background: linear-gradient(180deg, main.$white 0%, white 100%);
     position: fixed;
     right: 0;
     bottom: 0;
