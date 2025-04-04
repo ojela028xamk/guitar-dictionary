@@ -87,9 +87,9 @@ const DictionaryTable = ({ searchWord }: DictionaryTableProps) => {
   }
 
   return (
-    <Table.Root variant="surface">
+    <Table.Root size="3" className={css.dictionary_table}>
       <Table.Header>
-        <Table.Row>
+        <Table.Row className={css.dictionary_table_row}>
           <Table.ColumnHeaderCell>English</Table.ColumnHeaderCell>
           <Table.ColumnHeaderCell>Suomeksi</Table.ColumnHeaderCell>
         </Table.Row>
@@ -102,7 +102,7 @@ const DictionaryTable = ({ searchWord }: DictionaryTableProps) => {
             word.fi[0].toUpperCase() + word.fi.slice(1).toLowerCase();
 
           return (
-            <Table.Row key={index}>
+            <Table.Row key={index} className={css.dictionary_table_row}>
               <Table.Cell>{wordEng}</Table.Cell>
               <Table.Cell>{wordFin}</Table.Cell>
             </Table.Row>
