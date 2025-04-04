@@ -1,9 +1,10 @@
 "use client";
 import { Dictionary, getDictionaryList } from "@/dictionaryService";
-import { Fragment, useEffect, useState } from "react";
-import css from "./DictionaryTable.module.scss";
+import { useEffect, useState } from "react";
 import { useEffectOnce } from "react-use";
 import Spinner from "./Spinner";
+import { Table } from "@radix-ui/themes";
+import css from "./DictionaryTable.module.scss";
 
 type DictionaryTableProps = {
   searchWord: string;
@@ -60,42 +61,55 @@ const DictionaryTable = ({ searchWord }: DictionaryTableProps) => {
 
   if (isLoading) {
     return (
-      <div className={css.dictionary_table}>
-        <div className={css.table_header}>
-          <span>English</span>
-          <span>Suomeksi</span>
-          <Spinner />
-        </div>
-      </div>
+      <Table.Root>
+        <Table.Header>
+          <Table.Row>
+            <Table.ColumnHeaderCell>English</Table.ColumnHeaderCell>
+            <Table.ColumnHeaderCell>Suomeksi</Table.ColumnHeaderCell>
+            <Spinner />
+          </Table.Row>
+        </Table.Header>
+      </Table.Root>
+    );
+  }
+
+  if (!filteredDictionary.length) {
+    return (
+      <Table.Root>
+        <Table.Header>
+          <Table.Row>
+            <Table.ColumnHeaderCell>English</Table.ColumnHeaderCell>
+            <Table.ColumnHeaderCell>Suomeksi</Table.ColumnHeaderCell>
+          </Table.Row>
+        </Table.Header>
+      </Table.Root>
     );
   }
 
   return (
-    <div className={css.dictionary_table}>
-      <div className={css.table_header}>
-        <span>English</span>
-        <span>Suomeksi</span>
-      </div>
-      {filteredDictionary.length ? (
-        <>
-          {sortArray(filteredDictionary).map((word, index) => {
-            const wordEng =
-              word.en[0].toUpperCase() + word.en.slice(1).toLowerCase();
-            const wordFin =
-              word.fi[0].toUpperCase() + word.fi.slice(1).toLowerCase();
+    <Table.Root variant="surface">
+      <Table.Header>
+        <Table.Row>
+          <Table.ColumnHeaderCell>English</Table.ColumnHeaderCell>
+          <Table.ColumnHeaderCell>Suomeksi</Table.ColumnHeaderCell>
+        </Table.Row>
+      </Table.Header>
+      <Table.Body>
+        {sortArray(filteredDictionary).map((word, index) => {
+          const wordEng =
+            word.en[0].toUpperCase() + word.en.slice(1).toLowerCase();
+          const wordFin =
+            word.fi[0].toUpperCase() + word.fi.slice(1).toLowerCase();
 
-            return (
-              <div className={css.table_row} key={index}>
-                <span>{wordEng}</span>
-                <span>{wordFin}</span>
-              </div>
-            );
-          })}
-        </>
-      ) : (
-        <div></div>
-      )}
-    </div>
+          return (
+            <Table.Row key={index}>
+              <Table.Cell>{wordEng}</Table.Cell>
+              <Table.Cell>{wordFin}</Table.Cell>
+            </Table.Row>
+          );
+        })}
+      </Table.Body>
+    </Table.Root>
   );
 };
 
