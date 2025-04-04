@@ -1,11 +1,12 @@
 @use "../main.scss";
 
 .dictionary_table {
+  width: 90%;
   margin: main.$component-margin auto;
   background: main.$black;
   box-shadow: 5px 5px 0px main.$blue;
   border: none;
-  border-radius: 0.7em;
+  border-radius: main.$border-radius;
 
   .dictionary_table_row {
     font-size: clamp(1rem, 3vw, 1.2rem);
