@@ -2,9 +2,8 @@
 import { Dictionary, getDictionaryList } from "@/dictionaryService";
 import { useEffect, useState } from "react";
 import { useEffectOnce } from "react-use";
-import Spinner from "./Spinner";
-import { Table } from "@radix-ui/themes";
 import css from "./DictionaryTable.module.scss";
+import Loader from "./Loader";
 
 type DictionaryTableProps = {
   searchWord: string;
@@ -61,40 +60,42 @@ const DictionaryTable = ({ searchWord }: DictionaryTableProps) => {
 
   if (isLoading) {
     return (
-      <Table.Root>
-        <Table.Header>
-          <Table.Row>
-            <Table.ColumnHeaderCell>English</Table.ColumnHeaderCell>
-            <Table.ColumnHeaderCell>Suomeksi</Table.ColumnHeaderCell>
-            <Spinner />
-          </Table.Row>
-        </Table.Header>
-      </Table.Root>
+      <table className={css.dictionary_table}>
+        <thead>
+          <tr>
+            <th>English</th>
+            <th>Suomeksi</th>
+          </tr>
+        </thead>
+        <tbody>
+          <Loader />
+        </tbody>
+      </table>
     );
   }
 
   if (!filteredDictionary.length) {
     return (
-      <Table.Root>
-        <Table.Header>
-          <Table.Row>
-            <Table.ColumnHeaderCell>English</Table.ColumnHeaderCell>
-            <Table.ColumnHeaderCell>Suomeksi</Table.ColumnHeaderCell>
-          </Table.Row>
-        </Table.Header>
-      </Table.Root>
+      <table className={css.dictionary_table}>
+        <thead>
+          <tr>
+            <th>English</th>
+            <th>Suomeksi</th>
+          </tr>
+        </thead>
+      </table>
     );
   }
 
   return (
-    <Table.Root size="3" className={css.dictionary_table}>
-      <Table.Header>
-        <Table.Row className={css.dictionary_table_row}>
-          <Table.ColumnHeaderCell>English</Table.ColumnHeaderCell>
-          <Table.ColumnHeaderCell>Suomeksi</Table.ColumnHeaderCell>
-        </Table.Row>
-      </Table.Header>
-      <Table.Body>
+    <table className={css.dictionary_table}>
+      <thead>
+        <tr>
+          <th>English</th>
+          <th>Suomeksi</th>
+        </tr>
+      </thead>
+      <tbody>
         {sortArray(filteredDictionary).map((word, index) => {
           const wordEng =
             word.en[0].toUpperCase() + word.en.slice(1).toLowerCase();
@@ -102,14 +103,14 @@ const DictionaryTable = ({ searchWord }: DictionaryTableProps) => {
             word.fi[0].toUpperCase() + word.fi.slice(1).toLowerCase();
 
           return (
-            <Table.Row key={index} className={css.dictionary_table_row}>
-              <Table.Cell>{wordEng}</Table.Cell>
-              <Table.Cell>{wordFin}</Table.Cell>
-            </Table.Row>
+            <tr key={index}>
+              <td>{wordEng}</td>
+              <td>{wordFin}</td>
+            </tr>
           );
         })}
-      </Table.Body>
-    </Table.Root>
+      </tbody>
+    </table>
   );
 };
 

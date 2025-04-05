@@ -3,18 +3,27 @@
 .dictionary_table {
   width: 90%;
   margin: main.$component-margin auto;
-  background: main.$black;
+  background-color: main.$black;
+  color: main.$white;
   box-shadow: 5px 5px 0px main.$blue;
-  border: none;
   border-radius: main.$border-radius;
+  text-align: left;
 
-  .dictionary_table_row {
-    font-size: clamp(1rem, 3vw, 1.2rem);
-    color: main.$white;
+  th {
+    font-size: 1.2rem;
+    padding: 0.5em 1em;
+  }
+
+  tr {
     box-shadow: inset 0 -1px main.$white;
 
     &:last-of-type {
       box-shadow: none;
+    }
+
+    td {
+      font-size: clamp(1rem, 4vw, 1.2rem);
+      padding: 0.8em 1em;
     }
   }
 }
