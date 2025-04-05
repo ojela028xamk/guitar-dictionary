@@ -9,20 +9,20 @@
   background-color: main.$black;
   box-shadow: 3px 3px 0px main.$orange;
 
-  .dictionary_search_icon {
+  .icon {
     margin-left: 0.5em;
     color: main.$white;
     font-size: 2rem;
   }
 
-  .dictionary_search_input {
+  input {
+    border: none;
     border-radius: inherit;
     width: 100%;
-    padding: 0.5em;
-    border: none;
+    padding: 0.6em;
     color: main.$white;
     background-color: main.$black;
-    font-size: clamp(1em, 5vw, 1.5em);
+    font-size: 1.3rem;
 
     &:focus {
       outline-width: 0;

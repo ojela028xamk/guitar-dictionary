@@ -9,9 +9,8 @@ type DictionarySearchProps = {
 const DictionarySearch = ({ setSearchWord }: DictionarySearchProps) => {
   return (
     <div className={css.dictionary_search}>
-      <IoIosSearch className={css.dictionary_search_icon} />
+      <IoIosSearch className={css.icon} />
       <input
-        className={css.dictionary_search_input}
         type="text"
         placeholder="Hae..."
         onChange={(event) => setSearchWord(event.currentTarget.value)}
