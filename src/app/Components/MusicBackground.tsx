@@ -4,29 +4,29 @@ import css from "./MusicBackground.module.scss";
 import { Fragment } from "react";
 
 const MusicBackground = () => {
-  const noteCount = Array.from(Array(15).keys());
-
   return (
     <div className={css.music_background}>
       <div className={css.background}>
-        {noteCount.map((number) => (
-          <Fragment key={number}>
-            <Image
-              className={css.music_note}
-              src="/note1.png"
-              alt="Music Note"
-              width={512}
-              height={512}
-            />
-            <Image
-              className={css.music_note}
-              src="/note2.png"
-              alt="Music Note"
-              width={512}
-              height={512}
-            />
-          </Fragment>
-        ))}
+        {[1, 2].map((number) => {
+          return (
+            <Fragment key={number}>
+              <Image
+                className={css["note_single_" + number]}
+                src="/note_single.png"
+                alt="Music Note"
+                width={512}
+                height={512}
+              />
+              <Image
+                className={css["note_double_" + number]}
+                src="/note_double.png"
+                alt="Music Note"
+                width={512}
+                height={512}
+              />
+            </Fragment>
+          );
+        })}
       </div>
     </div>
   );

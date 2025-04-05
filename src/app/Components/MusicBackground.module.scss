@@ -1,19 +1,6 @@
 @use "../main.scss";
 
-// https://codepen.io/alphardex/pen/jOWMGON
 .music_background {
-  $bubble-count: 15;
-
-  @function random_range($min, $max) {
-    $rand: random();
-    $random_range: $min + floor($rand * (($max - $min) + 1));
-    @return $random_range;
-  }
-
-  @function sample($list) {
-    @return nth($list, random(length($list)));
-  }
-
   .background {
     background: linear-gradient(180deg, main.$white 0%, white 100%);
     position: fixed;
@@ -27,30 +14,52 @@
     overflow: hidden;
     z-index: -1;
 
-    .music_note {
+    .note_single_1 {
       position: absolute;
-      left: var(--bubble-left-offset);
-      bottom: -75%;
-      display: block;
-      width: var(--bubble-radius);
-      height: var(--bubble-radius);
-      animation: float-up var(--bubble-float-duration) var(--bubble-float-delay)
-        ease-in infinite;
+      top: 400px;
+      left: 30px;
+      width: 150px;
+      height: 150px;
+      animation: float 3s ease-in-out infinite;
+    }
 
-      @for $i from 0 through $bubble-count {
-        &:nth-child(#{$i}) {
-          --bubble-left-offset: #{random_range(0vw, 100vw)};
-          --bubble-radius: #{random_range(4vw, 8vw)};
-          --bubble-float-duration: #{random_range(6s, 12s)};
-          --bubble-float-delay: #{random_range(0s, 4s)};
-        }
-      }
+    .note_double_1 {
+      position: absolute;
+      top: 300px;
+      left: 200px;
+      width: 150px;
+      height: 150px;
+      animation: float 3s ease-in-out infinite;
+    }
+
+    .note_single_2 {
+      position: absolute;
+      top: 400px;
+      right: 30px;
+      width: 150px;
+      height: 150px;
+      animation: float 3s ease-in-out infinite;
+    }
+
+    .note_double_2 {
+      position: absolute;
+      top: 300px;
+      right: 200px;
+      width: 150px;
+      height: 150px;
+      animation: float 3s ease-in-out infinite;
     }
   }
+}
 
-  @keyframes float-up {
-    to {
-      transform: translateY(-175vh);
-    }
+@keyframes float {
+  0% {
+    transform: translatey(0px);
+  }
+  50% {
+    transform: translatey(-40px);
+  }
+  100% {
+    transform: translatey(0px);
   }
 }
