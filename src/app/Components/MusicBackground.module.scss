@@ -1,6 +1,16 @@
 @use "../main.scss";
 
 .music_background {
+  .vector {
+    position: fixed;
+    bottom: 0;
+  }
+
+  .vector_right {
+    right: 0;
+    transform: scaleX(-1);
+  }
+
   .background {
     background: linear-gradient(180deg, main.$white 0%, white 100%);
     position: fixed;

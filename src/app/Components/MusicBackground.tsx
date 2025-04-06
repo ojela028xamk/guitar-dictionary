@@ -2,11 +2,22 @@
 import Image from "next/image";
 import css from "./MusicBackground.module.scss";
 import { Fragment } from "react";
+import guitarist from "../../../public/guitarist_vector.svg";
 
 const MusicBackground = () => {
   return (
     <div className={css.music_background}>
       <div className={css.background}>
+        <Image
+          className={css.vector}
+          src={guitarist}
+          alt="Image of a guitarist"
+        />
+        <Image
+          className={`${css.vector} ${css.vector_right}`}
+          src={guitarist}
+          alt="Image of a guitarist"
+        />
         {[1, 2].map((number) => {
           return (
             <Fragment key={number}>
