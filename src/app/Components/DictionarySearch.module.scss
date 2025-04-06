@@ -1,17 +1,31 @@
-@import "../variables";
+@use "../main.scss";
 
 .dictionary_search {
-  margin: $component-margin auto;
-  z-index: 1;
   width: 90%;
+  display: flex;
+  align-items: center;
+  margin: main.$component-margin auto;
+  border-radius: main.$border-radius;
+  background-color: main.$black;
+  box-shadow: 3px 3px 0px main.$orange;
+
+  .icon {
+    margin-left: 0.5em;
+    color: main.$white;
+    font-size: 2rem;
+  }
 
   input {
+    border: none;
+    border-radius: inherit;
     width: 100%;
-    color: white;
-    padding: 0.5em;
-    background: $black;
-    border-radius: 0.4em;
-    font-size: clamp(1em, 5vw, 1.5em);
-    box-shadow: 3px 3px 0px $orange;
+    padding: 0.6em;
+    color: main.$white;
+    background-color: main.$black;
+    font-size: 1.3rem;
+
+    &:focus {
+      outline-width: 0;
+    }
   }
 }

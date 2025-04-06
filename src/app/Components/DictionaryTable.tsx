@@ -1,9 +1,9 @@
 "use client";
 import { Dictionary, getDictionaryList } from "@/dictionaryService";
-import { Fragment, useEffect, useState } from "react";
-import css from "./DictionaryTable.module.scss";
+import { useEffect, useState } from "react";
 import { useEffectOnce } from "react-use";
-import Spinner from "./Spinner";
+import css from "./DictionaryTable.module.scss";
+import Loader from "./Loader";
 
 type DictionaryTableProps = {
   searchWord: string;
@@ -60,42 +60,57 @@ const DictionaryTable = ({ searchWord }: DictionaryTableProps) => {
 
   if (isLoading) {
     return (
-      <div className={css.dictionary_table}>
-        <div className={css.table_header}>
-          <span>English</span>
-          <span>Suomeksi</span>
-          <Spinner />
-        </div>
-      </div>
+      <table className={css.dictionary_table}>
+        <thead>
+          <tr>
+            <th>English</th>
+            <th>Suomeksi</th>
+          </tr>
+        </thead>
+        <tbody>
+          <Loader />
+        </tbody>
+      </table>
+    );
+  }
+
+  if (!filteredDictionary.length) {
+    return (
+      <table className={css.dictionary_table}>
+        <thead>
+          <tr>
+            <th>English</th>
+            <th>Suomeksi</th>
+          </tr>
+        </thead>
+      </table>
     );
   }
 
   return (
-    <div className={css.dictionary_table}>
-      <div className={css.table_header}>
-        <span>English</span>
-        <span>Suomeksi</span>
-      </div>
-      {filteredDictionary.length ? (
-        <>
-          {sortArray(filteredDictionary).map((word, index) => {
-            const wordEng =
-              word.en[0].toUpperCase() + word.en.slice(1).toLowerCase();
-            const wordFin =
-              word.fi[0].toUpperCase() + word.fi.slice(1).toLowerCase();
+    <table className={css.dictionary_table}>
+      <thead>
+        <tr>
+          <th>English</th>
+          <th>Suomeksi</th>
+        </tr>
+      </thead>
+      <tbody>
+        {sortArray(filteredDictionary).map((word, index) => {
+          const wordEng =
+            word.en[0].toUpperCase() + word.en.slice(1).toLowerCase();
+          const wordFin =
+            word.fi[0].toUpperCase() + word.fi.slice(1).toLowerCase();
 
-            return (
-              <div className={css.table_row} key={index}>
-                <span>{wordEng}</span>
-                <span>{wordFin}</span>
-              </div>
-            );
-          })}
-        </>
-      ) : (
-        <div></div>
-      )}
-    </div>
+          return (
+            <tr key={index}>
+              <td>{wordEng}</td>
+              <td>{wordFin}</td>
+            </tr>
+          );
+        })}
+      </tbody>
+    </table>
   );
 };
 
