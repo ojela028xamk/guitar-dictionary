@@ -1,20 +1,6 @@
 @use "../main.scss";
 
 .music_background {
-  .vector {
-    position: fixed;
-    bottom: 0;
-  }
-
-  .vector_left {
-    left: 50px;
-  }
-
-  .vector_right {
-    right: 50px;
-    transform: scaleX(-1);
-  }
-
   .background {
     background: linear-gradient(180deg, main.$white 0%, white 100%);
     position: fixed;
@@ -28,39 +14,41 @@
     overflow: hidden;
     z-index: -1;
 
-    .note_single_1 {
-      position: absolute;
-      top: 400px;
-      left: 30px;
-      width: 150px;
-      height: 150px;
+    .vector,
+    .notes {
+      @media (max-width: 1440px) {
+        display: none;
+      }
+    }
+
+    .vector {
+      position: fixed;
+      bottom: 0;
+    }
+
+    .vector_left {
+      left: 50px;
+    }
+
+    .vector_right {
+      right: 50px;
+      transform: scaleX(-1);
+    }
+
+    .notes {
+      position: fixed;
+      bottom: 450px;
+      width: auto;
+      max-height: 20vh;
+    }
+
+    .notes_left {
+      left: 50px;
       animation: float 3s ease-in-out infinite;
     }
 
-    .note_double_1 {
-      position: absolute;
-      top: 300px;
-      left: 200px;
-      width: 150px;
-      height: 150px;
-      animation: float 3s ease-in-out infinite;
-    }
-
-    .note_single_2 {
-      position: absolute;
-      top: 400px;
-      right: 30px;
-      width: 150px;
-      height: 150px;
-      animation: float 3s ease-in-out infinite;
-    }
-
-    .note_double_2 {
-      position: absolute;
-      top: 300px;
-      right: 200px;
-      width: 150px;
-      height: 150px;
+    .notes_right {
+      right: 50px;
       animation: float 3s ease-in-out infinite;
     }
   }
