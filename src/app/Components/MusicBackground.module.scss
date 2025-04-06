@@ -6,8 +6,12 @@
     bottom: 0;
   }
 
+  .vector_left {
+    left: 50px;
+  }
+
   .vector_right {
-    right: 0;
+    right: 50px;
     transform: scaleX(-1);
   }
 
