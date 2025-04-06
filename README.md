@@ -9,7 +9,7 @@ Website is created with Next.js and it uses PostgreSQL database for dictionary.
 
 - [Flaticon](https://www.flaticon.com/)
 - [SVG Repo](https://www.svgrepo.com/)
-- [UnDraw]((https://undraw.co/)
+- [UnDraw](https://undraw.co/)
 
 ## Technologies/libraries used
 
