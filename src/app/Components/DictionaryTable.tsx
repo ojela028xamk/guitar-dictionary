@@ -35,8 +35,8 @@ const DictionaryTable = ({ searchWord }: DictionaryTableProps) => {
     const filteredDictionary = dictionary.filter((word) => {
       const search = searchWord.toLocaleLowerCase();
       if (
-        word.en.toLocaleLowerCase().includes(search) ||
-        word.fi.toLocaleLowerCase().includes(search)
+        word.word_en.toLocaleLowerCase().includes(search) ||
+        word.word_fi.toLocaleLowerCase().includes(search)
       )
         return true;
     });
@@ -46,8 +46,8 @@ const DictionaryTable = ({ searchWord }: DictionaryTableProps) => {
 
   const sortArray = (array: Dictionary[]) => {
     const sortedArray = [...array].sort((a, b) => {
-      const nameA = a.en.toUpperCase();
-      const nameB = b.en.toUpperCase();
+      const nameA = a.word_en.toUpperCase();
+      const nameB = b.word_en.toUpperCase();
 
       if (nameA < nameB) return -1;
       if (nameA > nameB) return 1;
@@ -98,9 +98,9 @@ const DictionaryTable = ({ searchWord }: DictionaryTableProps) => {
       <tbody>
         {sortArray(filteredDictionary).map((word, index) => {
           const wordEng =
-            word.en[0].toUpperCase() + word.en.slice(1).toLowerCase();
+            word.word_en[0].toUpperCase() + word.word_en.slice(1).toLowerCase();
           const wordFin =
-            word.fi[0].toUpperCase() + word.fi.slice(1).toLowerCase();
+            word.word_fi[0].toUpperCase() + word.word_fi.slice(1).toLowerCase();
 
           return (
             <tr key={index}>
