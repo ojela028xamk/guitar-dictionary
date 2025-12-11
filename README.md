@@ -20,5 +20,7 @@ Website is created with Next.js and it uses PostgreSQL database for dictionary.
 - Sass
 - React-use
 - Radix UI
-- PostgreSQL
+- SQL
+- Google BigQuery
+- Google Analytics
 - Figma
