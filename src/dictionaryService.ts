@@ -18,26 +18,22 @@ const getDictionaryList = async () => {
   const options = {
     query: query,
     location: "EU", // Must match your dataset location
-    params: { limit: 100 },
+    params: { limit: 1000 },
   };
 
   try {
     const [rows] = await bigquery.query(options);
-    return rows as Dictionary[];
+    const isValidData = isValidDictionaryData(rows as Dictionary[]);
+
+    if (isValidData) {
+      return rows;
+    } else {
+      throw Error;
+    }
   } catch (error) {
     console.error("BigQuery Error:", error);
     return [];
   }
-
-  /* const data = await sql`SELECT * FROM Dictionary`;
-  
-  const isValidData = isValidDictionaryData(data.rows as Dictionary[]);
-
-  if (isValidData) {
-    return data.rows;
-  } else {
-    throw Error;
-  }*/
 };
 
 const isValidDictionaryData = (
@@ -57,11 +53,14 @@ const isValidDictionaryData = (
 const isValidDictionaryDataObject = (
   dataObj: Dictionary
 ): dataObj is Dictionary => {
-  const hasCorrectKeys = "en" in dataObj && "fi" in dataObj;
+  const hasCorrectKeys = "word_en" in dataObj && "word_fi" in dataObj;
 
   if (!hasCorrectKeys) return false;
 
-  if (typeof dataObj.en !== "string" || typeof dataObj.fi !== "string") {
+  if (
+    typeof dataObj.word_en !== "string" ||
+    typeof dataObj.word_fi !== "string"
+  ) {
     return false;
   }
 
