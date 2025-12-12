@@ -1,5 +1,4 @@
 "use server";
-import { sql } from "@vercel/postgres";
 import bigquery from "./bigquery";
 
 export type Dictionary = {
