@@ -25,7 +25,11 @@
     font-size: 1.3rem;
 
     &:focus {
-      outline-width: 0;
+      outline: 0;
     }
+  }
+
+  @media (max-width: 425px) {
+    width: 100%;
   }
 }
