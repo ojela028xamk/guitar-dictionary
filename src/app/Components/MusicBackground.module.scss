@@ -13,55 +13,5 @@
     background-size: cover;
     overflow: hidden;
     z-index: -1;
-
-    .vector,
-    .notes {
-      @media (max-width: 1440px) {
-        display: none;
-      }
-    }
-
-    .vector {
-      position: fixed;
-      bottom: 0;
-    }
-
-    .vector_left {
-      left: 50px;
-    }
-
-    .vector_right {
-      right: 50px;
-      transform: scaleX(-1);
-    }
-
-    .notes {
-      position: fixed;
-      bottom: 450px;
-      width: auto;
-      max-height: 20vh;
-    }
-
-    .notes_left {
-      left: 50px;
-      animation: float 3s ease-in-out infinite;
-    }
-
-    .notes_right {
-      right: 50px;
-      animation: float 3s ease-in-out infinite;
-    }
-  }
-}
-
-@keyframes float {
-  0% {
-    transform: translatey(0px);
-  }
-  50% {
-    transform: translatey(-40px);
-  }
-  100% {
-    transform: translatey(0px);
   }
 }
