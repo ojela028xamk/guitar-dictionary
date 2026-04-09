@@ -3,7 +3,7 @@
 Website: https://guitar-dictionary.vercel.app/
 
 On this website user can read and learn english and finnish guitar terminology.
-Website is created with Next.js and it uses PostgreSQL database for dictionary.
+Website is created with Next.js and it takes dictionary data from Google BigQuery database.
 
 ## Vector/image sites used
 
@@ -13,14 +13,11 @@ Website is created with Next.js and it uses PostgreSQL database for dictionary.
 
 ## Technologies/libraries used
 
-- HTML, CSS, JavaScript
-- Typescript
-- React
-- Next.js
-- Sass
+- HTML, CSS, Sass
+- JavaScript, TypeScript
+- React, Next.js
 - React-use
 - Radix UI
-- SQL
 - Google BigQuery
 - Google Analytics
 - Figma
