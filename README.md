@@ -19,5 +19,4 @@ Website is created with Next.js and it takes dictionary data from Google BigQuer
 - React-use
 - Radix UI
 - Google BigQuery
-- Google Analytics
 - Figma
