@@ -1,6 +1,6 @@
 # Guitar Dictionary
 
-Website: https://guitar-dictionary.vercel.app/
+[Open website](https://guitar-dictionary.vercel.app/)
 
 On this website user can read and learn english and finnish guitar terminology.
 Website is created with Next.js and it takes dictionary data from Google BigQuery database.
